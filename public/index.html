@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <title> contact list</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" ng-controller="AppCtrl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" ng-model="contact.name" class="form-control" placeholder="">
+                    </td>
+                    <td>
+                        <input type="text" ng-model="contact.email" class="form-control" placeholder="">
+                    </td>
+                    <td>
+                        <input type="text" ng-model="contact.number" class="form-control" placeholder="">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" ng-click="update()">Update Contact</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="contact in contactlist">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.number}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="controller/ctrl.js"></script>
+</body>
+
+</html>
