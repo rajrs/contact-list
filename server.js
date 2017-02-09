@@ -14,10 +14,9 @@ app.get('/contactlist', function(req, res) {
 });
 app.post('/contactlist', function(req, res) {
     // console.log("get req from");
-    //// console.log(req.body);
     db.contatlist.insert(req.body, function(err, doc) {
         res.json(doc);
-    });
+    }); 
 });
 app.delete('/contactlist/:id', function(req, res) {
     var id = req.params.id;
